@@ -16,6 +16,7 @@
     </style>
     <title>Number Facts</title>
   </head>
+
   <body class="bg-dark">
     <div class="container">
       <div class="row">
@@ -62,16 +63,16 @@
             }
             return response.text();
           })
-          .then((data) => {
-            fact.style.display = "block";
+          .then(data => {
             factText.innerText = data;
           })
-          .catch((err) => {
+          .catch(err => {
             console.error("Fetch error:", err);
-
-            fact.style.display = "block";
             factText.innerText =
               "Sorry, we couldn't load a number fact right now. Please try again later.";
+          })
+          .finally(() => {
+            fact.style.display = "block";
           });
       }
     </script>
